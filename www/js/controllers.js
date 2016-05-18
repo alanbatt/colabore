@@ -1,6 +1,37 @@
 angular.module('starter.controllers', [])
 
-.controller('PublicarCtrl', function($scope) {})
+.controller('PublicarCtrl', function($scope, $ionicPopup, Camera) {
+  $scope.getPicture = function (options) {
+  
+      var options = {
+         quality : 75,
+         targetWidth: 200,
+         targetHeight: 200,
+         sourceType: 0
+      };
+
+      Camera.getPicture(options).then(function(imageData) {
+         $scope.picture = imageData;;
+      }, function(err) {
+         console.log(err);
+      });
+   };
+
+
+  $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Confirmar publicação',
+     template: 'Você tem certeza que quer fazer essa publicação?'
+   });
+   confirmPopup.then(function(res) {
+     if (res) {
+       console.log('Você tem certeza');
+     }else {
+     console.log('Você não tem certeza');
+   }
+   });
+  };
+})
 
 .controller('FiscalizarCtrl', function($scope, Publicacoes) {
   // Com a nova view cache no Ionic, Controllers só são chamados quando eles são 
@@ -10,6 +41,22 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+
+  
+  //adicionando a funcionalidade de inserir comentario    
+  $scope.comment ="";  
+  $scope.comentarios = {};
+  
+  $scope.saveComment = function() {
+    $scope.comment = $scope.comentarios.comentario;
+  };
+
+  $scope.edit = function(item) {
+    alert('Edita Item: ' + item.id);
+  };
+  $scope.share = function(item) {
+    alert('Divulga Item: ' + item.id);
+  };
 
   $scope.publicacoes = Publicacoes.all();
 })

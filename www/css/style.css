@@ -1,1 +1,28 @@
 /* Vazio. Adicione seu próprio CSS se a gosto */
+.pane {
+    background-color: #E7FFDF;
+}
+
+.list{
+	background-color: 	#E6FCFF;
+}
+
+.item-text-wrap{
+	background-color: 	#E6FCFF;	
+}
+
+.item-avatar{
+	background-color: 	#D0E6FF;
+}
+
+.item-avatar h2{
+	color: 	#000066;
+}
+
+.item-avatar p{
+	color: 	#0033CC;
+}
+
+.item-body{
+	background-color: 	#E6FCFF;	
+}

@@ -8,6 +8,11 @@
     </div>
     <div class="list card" ng-repeat="publicacao in publicacoes">
 
+      <div ng-init="items = [
+       {name:'Apoiador', count:1}
+       ]">
+     </div>
+
       <div class="item item-avatar">
         <img src="{{publicacao.face}}">
         <h2>{{publicacao.nome}}</h2>
@@ -19,9 +24,12 @@
           {{publicacao.descricao}}
         </p>
         <p>
-          <a href="#/tab/fiscalizar" class="subdued">1 Apoiador</a>
-          <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
-          <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
+          <ul ng-repeat="item in items">
+           <span>{{item.count}}</span>
+            <a  ng-click="item.count = item.count + 1" href="#/tab/fiscalizar" class="subdued"> Apoiar</a>
+            <a href="#/tab/fiscalizar/{{publicacao.id}}" class="subdued">5 Comentários</a>
+            <a href="#/tab/fiscalizar" class="subdued">Divulgar</a>
+          </ul>
         </p>
       </div>
 

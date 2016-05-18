@@ -5,7 +5,7 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{publicacao.nome}}">
-  <ion-content>
+  <ion-content ng-controller="FiscalizarCtrl" class="padding">
 
     <div class="item item-avatar">
       <img src="{{publicacao.face}}">
@@ -17,10 +17,12 @@
       </p>
     </div>
     <div class="list">
+      <p class="padding">{{comment}}</p>
       <label class="item item-input">
-        <textarea placeholder="Digite seu comentário"></textarea>
+        <input ng-model="comentarios.comentario" type="text" placeholder="Digite seu comentário">
+<!--         <textarea placeholder="Digite seu comentário"></textarea> -->
       </label>
-      <button class="button button-full button-positive">
+      <button ng-click="saveComment()" class="button button-full button-positive">
         Comentar
       </button>
   </ion-content>

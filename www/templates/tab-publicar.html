@@ -1,6 +1,6 @@
-<ion-view view-title="Colabore.ufpe">
-  <ion-content class="padding">
-    <h1>Bem-vindo</h1>
+<ion-view  view-title="Colabore.ufpe">
+  <ion-content ng-controller="PublicarCtrl" class="padding">
+    <!-- <h1>Bem-vindo</h1>
     <h2>Projeto Colabore.ufpe</h2>
     <h3>
     Este é seu teste prático para front-end engineering design do <a target="_blank" href="https://www.ufpe.br/nti/">NTI</a> da <a target="_blank" href="https://www.ufpe.br/">UFPE</a>
@@ -18,6 +18,44 @@
     <p>
       Estamos feliz por você estar participando da nossa seleção, boa sorte.
     </p>
-    <p><small>Universidade Federal de Pernambuco<br>Núcleo de Tecnologia da Informação<br>Responsável: Thiago Bezerra</small></p>
-  </ion-content>
+    <p><small>Universidade Federal de Pernambuco<br>Núcleo de Tecnologia da Informação<br>Responsável: Thiago Bezerra</small></p> -->
+    <ion-header-bar class="bar-positive" class="padding">
+      <div class="buttons">
+        <h1 class="title">Publicar</h1>
+      </div>
+    </ion-header-bar>
+  </br>
+  </br>
+
+    <div class="card">
+      <div class="item item-divider">
+        Inserir a imagem
+      </div>
+      <div class="item item-text-wrap">
+<!--         para utilizar a captura de image pela camera precisa utilizar o plugin
+        comando pelo prompt no diretorio do projeeto: --> 
+        <button class="button icon-left ion-camera" icon-on="ion-ios-camera" ng-click = "takePicture()">Take Picture</button>
+        <button class="button icon-left ion-image" ng-click = "getPicture()">Open Gallery</button>
+        <img ng-src = "{{user.picture}}">
+      </div>
+    </div>
+
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Titulo</span>
+        <input type="text" placeholder="Inserir titulo da publicação">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Descrição</span>
+        <input type="text" placeholder="Inserir descrição da publicação">
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Localização</span>
+        <input type="text" placeholder="inserir local da foto">
+      </label>
+    </div>
+
+    <button class="button button-block button-balanced" ng-click="showConfirm()">Confirmar publicação</button>
+
+  </ion-content> 
 </ion-view>

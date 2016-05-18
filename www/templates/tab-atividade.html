@@ -1,9 +1,16 @@
 <ion-view view-title="Atividade">
 	<ion-content>
 	<!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
-	  
-	  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+		<ion-header-bar class="bar-positive">
+		  <div class="buttons">
+		  	<button class="button button-icon icon ion-ios-minus-outline" ng-click="showDelete = !showDelete"></button>
+		    <h1 class="title">Lista de Atividades</h1>
+		    <button class="button" ng-click="showReorder = !showReorder">Reorder</button>
+		  </div>
+		</ion-header-bar>
 
+	  <ion-list show-reorder="showReorder" show-delete="showDelete" show-delete="data.showDelete" show-reorder="data.showReorder">
+	  	
 	    <ion-item ng-repeat="item in items" 
 	              item="item"
 	              class="item-remove-animate">
